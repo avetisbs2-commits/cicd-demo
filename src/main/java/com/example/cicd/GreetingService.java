@@ -16,6 +16,6 @@ public final class GreetingService {
         if (name == null || name.isBlank()) {
             return "Hello, world!";
         }
-        return "Hello, " + name.trim() + "!";
+        return "Hello, " + name.trim() + "! v2";
     }
 }

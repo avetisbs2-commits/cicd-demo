@@ -29,7 +29,9 @@ public class App {
         System.out.println("cicd-demo " + VersionInfo.text() + " is listening on port " + port);
     }
 
-    /** Creates the server (it is not started yet). Port 0 means "any free port": the tests use it. */
+    /**
+     * Creates the server (it is not started yet). Port 0 means "any free port": the tests use it.
+     */
     public static HttpServer createServer(int port) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/health", exchange -> reply(exchange, 200, "OK"));
@@ -38,7 +40,7 @@ public class App {
                 reply(exchange, 200, GreetingService.greet(queryParameter(exchange.getRequestURI().getRawQuery(), "name"))));
         server.createContext("/", exchange -> {
             if (exchange.getRequestURI().getPath().equals("/")) {
-                reply(exchange, 200, "Hello from the CI/CD demo. Try /health, /greet?name=Anna and /version");
+                reply(exchange, 200, "Hello from the CI/CD demo. Try /health, /greet?name=Anna and /version  i am here");
             } else {
                 reply(exchange, 404, "Not found");
             }
@@ -66,8 +68,5 @@ public class App {
         try (OutputStream out = exchange.getResponseBody()) {
             out.write(body);
         }
-    }
-    private static void addMethod(){
-
     }
 }

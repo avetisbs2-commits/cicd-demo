@@ -40,7 +40,7 @@ public class App {
                 reply(exchange, 200, GreetingService.greet(queryParameter(exchange.getRequestURI().getRawQuery(), "name"))));
         server.createContext("/", exchange -> {
             if (exchange.getRequestURI().getPath().equals("/")) {
-                reply(exchange, 200, "Hello from the CI/CD demo. Try /health, /greet?name=Anna and /version  i am here");
+                reply(exchange, 200, "Hello from the CI/CD demo. Try /health, /greet?name=Anna and /version  i am  here");
             } else {
                 reply(exchange, 404, "Not found");
             }

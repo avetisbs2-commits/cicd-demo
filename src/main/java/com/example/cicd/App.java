@@ -67,4 +67,7 @@ public class App {
             out.write(body);
         }
     }
+    private static void addMethod(){
+
+    }
 }

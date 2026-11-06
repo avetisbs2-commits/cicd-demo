@@ -133,8 +133,9 @@ jobs:
         env:
           APP_URL: ${{ vars.APP_URL }}
         run: |
+          APP_URL="${APP_URL%/}"
           for i in $(seq 1 30); do
-            if curl -fsS "https://cicd-demo-x2wl.onrender.com/health"; then exit 0; fi    # the health address
+            if curl -fsS "$APP_URL/health"; then exit 0; fi
             echo "not ready yet ($i/30)"
             sleep 10
           done
